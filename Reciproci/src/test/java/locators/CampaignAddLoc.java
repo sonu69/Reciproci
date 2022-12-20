@@ -69,13 +69,9 @@ public class CampaignAddLoc {
 	
 	@FindBy(xpath="//mat-panel-title[contains(text(),'Arabic')]") public WebElement arbEmailContent;
 	
-	@FindBy(css="#tinymce") public List<WebElement> emailContentBody;
+	@FindBy(css="#tinymce> p") public WebElement emailContentBody;
 		
 	@FindBy(xpath="//iframe") public List<WebElement> sonuEContent;
-	
-	@FindBy(xpath="//button[text()='CANCEL']") public WebElement cancelCampaign;
-	
-	@FindBy(xpath="//button[text()='ADD']") public WebElement submitCampaign;
 	
 	@FindBy(xpath="//input[@aria-label='pushTemplate']") public WebElement pushTemplate;
 	
@@ -85,6 +81,10 @@ public class CampaignAddLoc {
 	
 	@FindBy(xpath="//span[contains(text(),'IsInclude Arabic') and @class='mat-checkbox-label']")  public WebElement isArabic;
 	
+	@FindBy(xpath="//button[text()='ADD']/../button[text()='CANCEL']") public WebElement cancelCampaign;
 	
+	@FindBy(xpath="//button[text()='ADD']") public WebElement submitCampaign;
+	
+
 
 }

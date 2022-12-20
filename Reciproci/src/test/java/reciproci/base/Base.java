@@ -141,6 +141,13 @@ public class Base{
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", element);
 	}
+	
+	
+	public static void typeJ(WebElement element,String input) {
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+//		executor.executeScript("arguments[0].value='---your email id---';", element);
+		executor.executeScript("arguments[0].value='"+input+"';", element);
+	}
 
 
 	public static String getScreenshott() throws IOException {

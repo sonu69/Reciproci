@@ -1,5 +1,7 @@
 package reciproci.pages;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.Iterator;
 
 import org.openqa.selenium.By;
@@ -19,9 +21,9 @@ public class CampaignAddPage extends Base{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, ca);
 	}
-	
+
 	public void addCampaign() throws InterruptedException {
-		
+
 		String seltemplate="yes";
 		String iArabic="yes";
 
@@ -56,13 +58,13 @@ public class CampaignAddPage extends Base{
 		ca.pushContentTab.click();Thread.sleep(1000);
 		ca.liknTo.click();Thread.sleep(1000);
 		ca.liknToOption.click();Thread.sleep(1000);
-		
-		
+
+
 		ca.subject.get(0).sendKeys("Hope You are doing great");
 		Thread.sleep(1000);
 		ca.content.get(0).sendKeys("This is just for the Testing Purpose");
 		Thread.sleep(1000);
-		
+
 		clickJ(ca.smsContentTab);
 		Thread.sleep(1000);
 		clickJ(ca.smsUserNamedd);
@@ -75,23 +77,23 @@ public class CampaignAddPage extends Base{
 		Thread.sleep(1000);
 		ca.content.get(1).sendKeys("This is just for the Testing Purpose");
 		Thread.sleep(1000);
-		
+
 		Thread.sleep(1000);
 		clickJ(ca.emailContentTab);
 		Thread.sleep(1000);
 		clickJ(ca.emailSenderIDdd);Thread.sleep(2000);
 		clickJ(ca.emailSenderID);Thread.sleep(2000);
-		
+
 		clickJ(ca.engEmailContent);Thread.sleep(2000);
 		//ca.emailSubject.get(1).sendKeys("Hope You are doing great");Thread.sleep(1000);
 		driver.switchTo().frame(0);
-		ca.emailContentBody.get(0).sendKeys("This is just for the Testing Purpose");
+		//ca.emailContentBody.get(0).sendKeys("This is just for the Testing Purpose");
 		driver.switchTo().parentFrame();
-		
+
 		driver.switchTo().defaultContent();
-		
+
 		//clickJ(ca.submitCampaign);
-	
+
 	}
 
 
@@ -133,21 +135,21 @@ public class CampaignAddPage extends Base{
 		ca.pushContentTab.click();Thread.sleep(1000);
 		ca.liknTo.click();Thread.sleep(1000);
 		ca.liknToOption.click();Thread.sleep(1000);
-		
-		
+
+
 		ca.subject.get(0).sendKeys("Hope You are doing great");
 		Thread.sleep(1000);
 		ca.content.get(0).sendKeys("This is just for th Testing Purpose");
 		Thread.sleep(1000);
-		
+
 		if(arabic.equalsIgnoreCase("yes")) {
 			ca.subject.get(1).sendKeys("Hope You are doing great");
 			Thread.sleep(1000);
 			ca.content.get(1).sendKeys("This is just for th Testing Purpose");
 			Thread.sleep(1000);
 		}
-		
-		
+
+
 		clickJ(ca.smsContentTab);
 		Thread.sleep(1000);
 		clickJ(ca.smsUserNamedd);
@@ -161,55 +163,55 @@ public class CampaignAddPage extends Base{
 		ca.content.get(2).sendKeys("This is just for th Testing Purpose");
 		Thread.sleep(1000);
 		ca.content.get(3).sendKeys("This is just for th Testing Purpose");
-		
+
 		Thread.sleep(1000);
 		clickJ(ca.emailContentTab);
 		Thread.sleep(1000);
 		clickJ(ca.emailSenderIDdd);Thread.sleep(2000);
 		clickJ(ca.emailSenderID);Thread.sleep(2000);
-		
+
 		clickJ(ca.engEmailContent);Thread.sleep(2000);
-//		ca.emailSubject.get(2).sendKeys("Hope You are doing great");Thread.sleep(2000);
+		//		ca.emailSubject.get(2).sendKeys("Hope You are doing great");Thread.sleep(2000);
 		driver.switchTo().frame(0);
-		ca.emailContentBody.get(0).sendKeys("This is just for th Testing Purpose");
+		//ca.emailContentBody.get(0).sendKeys("This is just for th Testing Purpose");
 		driver.switchTo().parentFrame();
-		
+
 		if(arabic.equalsIgnoreCase("yes")) {
-		clickJ(ca.arbEmailContent);
-		Thread.sleep(2000);
-//		ca.emailSubject.get(3).sendKeys("Hope You are doing great");
-		Thread.sleep(1000);
-		driver.switchTo().frame("arabicID_ifr");
-		Thread.sleep(2000);
-		ca.emailContentBody.get(0).sendKeys("This is just for th Testing Purpose");
-		driver.switchTo().parentFrame();
+			clickJ(ca.arbEmailContent);
+			Thread.sleep(2000);
+			//		ca.emailSubject.get(3).sendKeys("Hope You are doing great");
+			Thread.sleep(1000);
+			driver.switchTo().frame("arabicID_ifr");
+			Thread.sleep(2000);
+			//ca.emailContentBody.get(0).sendKeys("This is just for th Testing Purpose");
+			driver.switchTo().parentFrame();
 		}
-		
+
 		driver.switchTo().defaultContent();
 		clickJ(ca.submitCampaign);
-	
+
 	}
-	
+
 	public void selectTemplate() {
-		
+
 	}
-	
+
 	public void addWhatsappCampaign() {
-		
+
 	}
-	
+
 	public void addMultilingualWhatsappCampaign() {
-		
+
 	}
 
 	public void memberFileUploadSegment() {
-		
+
 	}
-	
+
 	public void nonMemberFileUploadSegment() {
-		
+
 	}
-	
+
 
 	public void arabicAndTemplate() throws Exception {
 		String seltemplate="yes";
@@ -244,15 +246,15 @@ public class CampaignAddPage extends Base{
 		Thread.sleep(1000);
 		clickJ(ca.continueBasic.get(1));
 		Thread.sleep(1000);
-		
+
 		ca.pushContentTab.click();Thread.sleep(1000);
 		ca.liknTo.click();Thread.sleep(1000);
 		ca.liknToOption.click();Thread.sleep(1000);
-		
+
 		click(ca.pushTemplate);
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Add profile']"))).click();
-		
+
 		clickJ(ca.smsContentTab);
 		Thread.sleep(2000);
 		clickJ(ca.smsUserNamedd);
@@ -268,61 +270,60 @@ public class CampaignAddPage extends Base{
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='BIRTHDAY SMS']"))).click();
 		clickJ(ca.smsContentTab);
+
+
 		
 		Thread.sleep(1000);
 		clickJ(ca.emailContentTab);
 		Thread.sleep(2000);
 		clickJ(ca.emailSenderIDdd);
 		Thread.sleep(2000);
-		
 		clickJ(ca.emailSenderID);
 		Thread.sleep(2000);
 
-		
-		clickJ(ca.engEmailContent);
-		
-		Thread.sleep(5000);
-		
-		//clickJ(ca.subject.get(3));
-		
-//		scrollToElement(ca.subject.get(3));
-		
-		Thread.sleep(5000);
-		
-		ca.subject.get(3).sendKeys("Hello Email subject");
-		
-		Thread.sleep(5000);
-		
-		driver.switchTo().frame(0);
-		ca.emailContentBody.get(0).sendKeys("This is just for the Testing Purpose");
-		driver.switchTo().parentFrame();
+		Robot rb = new Robot();
+		rb.keyPress(KeyEvent.VK_PAGE_DOWN);
+		rb.keyRelease(KeyEvent.VK_PAGE_DOWN);
 
+
+		Thread.sleep(2000);
+		clickJ(ca.engEmailContent);
+		Thread.sleep(2000);
+		typeJ(ca.subject.get(2),"Happy Birthday English");
+		Thread.sleep(3000);
+		driver.switchTo().frame(0);
+		Thread.sleep(2000);
+		ca.emailContentBody.sendKeys("This is just for the Testing Purpose,English");
+		driver.switchTo().parentFrame();
+		driver.switchTo().defaultContent();
+		clickJ(ca.engEmailContent);
+
+		
 		Thread.sleep(2000);
 		clickJ(ca.arbEmailContent);
 		Thread.sleep(2000);
-		
-		scrollToElement(ca.subject.get(4));
+		typeJ(ca.subject.get(3),"Happy Birthday Arabic");
 		Thread.sleep(2000);
-		type(ca.subject.get(4), "Hope You are doing great");
-		
 		driver.switchTo().frame(1);
-		ca.emailContentBody.get(1).sendKeys("This is just for the Testing Purpose");
+		Thread.sleep(2000);
+		ca.emailContentBody.sendKeys("This is just for the Testing Purpose,Arabic");
 		driver.switchTo().parentFrame();
-		
 		driver.switchTo().defaultContent();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		clickJ(ca.arbEmailContent);
+		Thread.sleep(2000);
+		ca.cancelCampaign.click();
+
+
+
+
+
+
+
+
+
 	}
-	
-	
-	
-	
+
+
+
+
 }
