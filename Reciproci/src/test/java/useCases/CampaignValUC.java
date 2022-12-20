@@ -24,7 +24,7 @@ public class CampaignValUC {
 	@Test
 	public void addCampaign() throws Exception {
 		CampaignAddPage cp = Menu.Marketing.Campaigns.addCampaigns();
-		cp.addCampaign();
+		cp.arabicAndTemplate();
 	}
 
 }

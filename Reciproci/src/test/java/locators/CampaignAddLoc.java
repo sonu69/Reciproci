@@ -51,7 +51,7 @@ public class CampaignAddLoc {
 	
 	@FindBy(xpath="//span[text()='Username']") public WebElement smsUserNamedd;
 	
-	@FindBy(xpath="//span[text()='Sender ID']") public WebElement smsSenderIDdd;
+	@FindBy(xpath="//span[text()='Sender ID' and contains(@class,'mat-select-placeholder')]") public WebElement smsSenderIDdd;
 	
 	@FindBy(xpath="//span[contains(text(),'clubtest')]")  public WebElement smsUsername;
 	
@@ -63,27 +63,27 @@ public class CampaignAddLoc {
 
 	@FindBy(css=".mat-option.ng-star-inserted.mat-active") public WebElement emailSenderID;
 	
+	@FindBy(xpath="//span[text()='IsInclude Arabic ']") public WebElement arabicCheckbox;
+	
 	@FindBy(xpath="//mat-panel-title[contains(text(),'English')]") public WebElement engEmailContent;
 	
 	@FindBy(xpath="//mat-panel-title[contains(text(),'Arabic')]") public WebElement arbEmailContent;
 	
-	@FindBy(xpath="//textarea[@placeholder='Subject']") public List<WebElement> emailSubject;
-	
 	@FindBy(css="#tinymce") public List<WebElement> emailContentBody;
-	
-	@FindBy(xpath="//span[text()='IsInclude Arabic ']") public WebElement arabicCheckbox;
-	
-	@FindBy(xpath="//textarea[@placeholder='Subject']") public List<WebElement> sonuSubject;
-	
-	@FindBy(xpath="//textarea[@placeholder='Content']") public List<WebElement> sonuContent;
-	
+		
 	@FindBy(xpath="//iframe") public List<WebElement> sonuEContent;
 	
 	@FindBy(xpath="//button[text()='CANCEL']") public WebElement cancelCampaign;
 	
 	@FindBy(xpath="//button[text()='ADD']") public WebElement submitCampaign;
 	
+	@FindBy(xpath="//input[@aria-label='pushTemplate']") public WebElement pushTemplate;
 	
+	@FindBy(xpath="//input[@aria-label='smsTemplate']") public WebElement smsTemplate;
+	
+	@FindBy(xpath="//input[@aria-label='emailTemplate']") public WebElement emailTemplate;
+	
+	@FindBy(xpath="//span[contains(text(),'IsInclude Arabic') and @class='mat-checkbox-label']")  public WebElement isArabic;
 	
 	
 
