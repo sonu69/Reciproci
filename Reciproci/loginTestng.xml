@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="customListeners.Listener"></listener>
+</listeners>
+  <test name="Test1">
+    <classes>
+      <class name="useCases.LoginValidation">
+      <methods>
+      <include name="doLogin"></include>
+      <include name="doLogin1"></include>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+ 
+</suite> <!-- Suite -->
