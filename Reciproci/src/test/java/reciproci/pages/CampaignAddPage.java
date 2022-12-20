@@ -20,7 +20,7 @@ public class CampaignAddPage extends Base{
 	
 	public void addCampaign() throws InterruptedException {
 
-		Thread.sleep(6000);
+		Thread.sleep(5000);
 		click(ca.clickActivity);
 		Thread.sleep(2000);
 		click(ca.otherCampaignType);
