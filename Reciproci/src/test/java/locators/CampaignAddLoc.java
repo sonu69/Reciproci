@@ -6,8 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CampaignAddLoc {
-	//span[contains(text(),'Other')]
-	@FindBy(xpath="//div[@class='mat-select-value']/span[text()='Activity']/..") public WebElement clickActivity;
+	
+	@FindBy(xpath="//h1[contains(text(),'Add Campaigns')]") public WebElement pageHeader;
+	
+	@FindBy(xpath="//span[text()='Activity']/..") public WebElement clickActivity;
 	
 	@FindBy(xpath="//span[contains(text(),'Other')]") public WebElement otherCampaignType;
 	
@@ -85,6 +87,4 @@ public class CampaignAddLoc {
 	
 	@FindBy(xpath="//button[text()='ADD']") public WebElement submitCampaign;
 	
-
-
 }

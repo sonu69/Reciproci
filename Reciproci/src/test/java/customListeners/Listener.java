@@ -1,6 +1,5 @@
 package customListeners;
 
-
 import java.lang.reflect.Method;
 
 import org.testng.IExecutionListener;
@@ -84,8 +83,6 @@ public class Listener implements IExecutionListener, IInvokedMethodListener, ISu
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		
 	}
-	
-	
 
 
 }

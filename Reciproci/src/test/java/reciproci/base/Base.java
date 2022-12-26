@@ -99,9 +99,9 @@ public class Base{
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.valueOf(or.getProperty("implicitTime")),TimeUnit.SECONDS);
 			
-			driver.get(config.getProperty("uatURL"));
+			driver.get(config.getProperty("sitURL"));
 			act = new Actions(driver);
-			wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+			wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 			
 			try {
 				wb = getwbook();
@@ -116,6 +116,15 @@ public class Base{
 		
 		driver.quit();
 		
+	}
+	
+	
+	public static void waitv(WebElement element) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public static void waite(WebElement element) {
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 
