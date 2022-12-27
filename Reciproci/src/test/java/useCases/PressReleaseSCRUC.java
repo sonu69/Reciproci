@@ -7,13 +7,12 @@ import reciproci.base.Base;
 import reciproci.pages.LoginPageAct;
 import reciproci.pages.Menu;
 import reciproci.pages.PressReleaseSearchPage;
-import utility.ElementNotFound;
 
 public class PressReleaseSCRUC {
 
 	@Parameters({"username","password"})
 	@Test(enabled=false)
-	public Menu verifySuccessLogin(String username, String password) throws ElementNotFound {
+	public Menu verifySuccessLogin(String username, String password) throws Exception {
 		LoginPageAct lp = new LoginPageAct();
 		lp.doLogin(username,password);
 		return new Menu();

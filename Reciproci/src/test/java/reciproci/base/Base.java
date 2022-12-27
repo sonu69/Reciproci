@@ -1,5 +1,6 @@
 package reciproci.base;
 
+import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -18,6 +19,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -41,8 +43,8 @@ public class Base{
 	public Properties or = new Properties();
 	public Properties config = new Properties();
 	public FileInputStream fis;
+	public static Robot rb;
 	//public static Logger log = Logger.getLogger("devpinoyLogger");
-
 
 
 	public XSSFWorkbook getwbook() throws Exception {
@@ -53,7 +55,7 @@ public class Base{
 	}
 
 
-	public Base(){
+	public Base() throws Exception{
 
 		if(driver==null) {
 			try {
@@ -102,6 +104,7 @@ public class Base{
 			driver.get(config.getProperty("sitURL"));
 			act = new Actions(driver);
 			wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			rb = new Robot();
 			
 			try {
 				wb = getwbook();
@@ -117,6 +120,84 @@ public class Base{
 		driver.quit();
 		
 	}
+	
+	public static void uploadImage(String path) throws Exception {
+		StringSelection ss = new StringSelection(System.getProperty("user.dir")+path);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		Robot robot = new Robot();
+		robot.delay(2000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		robot.delay(2000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.delay(2000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+
+	
+	
+	public void selectDate(String date) throws Exception{
+		
+		WebElement period = driver.findElement(By.xpath("//button[contains(@class,'mat-calendar-period-button')]/span"));
+		period.click();
+		Thread.sleep(2000);
+		String[] dates = date.split("/");
+				
+		String day = dates[0];
+		String month = dates[1];
+		String year = dates[2];
+		
+		driver.findElement(By.xpath("//div[text()='"+year+"']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[text()='"+month+"']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[text()='"+day+"']")).click();
+		Thread.sleep(2000);	
+		
+	}
+	
+	
+	public static void selectTime(WebElement element, String hour, String min) throws InterruptedException {
+		
+		element.click();
+		Thread.sleep(1000);
+		WebElement hourE = driver.findElement(By.xpath("//span[text()='Hour']/../input"));
+		hourE.clear();
+		hourE.sendKeys(hour);
+		Thread.sleep(1000);
+		WebElement secondE = driver.findElement(By.xpath("//span[text()='Minute']/../input"));
+		secondE.clear();
+		secondE.sendKeys(min);
+		driver.findElement(By.xpath("//span[text()='Set']")).click();
+		
+	}
+	
+	
+	public static void multiDropdwn(WebElement element,String option) throws InterruptedException{
+		Thread.sleep(2000);
+		//element = driver.findElement(By.xpath("//mat-select[@aria-multiselectable='true']/div"));
+		element.click();
+		Thread.sleep(2000);
+		WebElement options = driver.findElement(By.xpath("//span[contains(text(),'"+option+"')]"));
+		options.click();
+		
+	}
+
+
+	
+	
+	public static void selectOption(WebElement element,String option) throws InterruptedException {
+		Thread.sleep(1000);
+		element.click();
+		Thread.sleep(2000);
+		driver.findElements(By.xpath("//span[contains(text(),'"+option+"')]")).get(0).click();
+	}
+	
+	
 	
 	
 	public static void waitv(WebElement element) {
@@ -233,25 +314,6 @@ public class Base{
 		String data = sh.getRow(rowNum).getCell(colNum).getStringCellValue();
 		return data;
 	}
-
-
-	public static void uploadImage(String path) throws Exception {
-		StringSelection ss = new StringSelection(System.getProperty("user.dir")+path);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		Robot robot = new Robot();
-		robot.delay(2000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		robot.delay(2000);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.delay(2000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-	}
-
 
 	public static void getScreenshot() throws Exception {
 		

@@ -11,14 +11,14 @@ public class LoginValidation extends Initials{
 	LoginPageAct lp;
 
 	@Test
-	public void doLogin(){
+	public void doLogin() throws Exception{
 		lp = new LoginPageAct();
 		lp.doLogin();
 	}
 	
 	
 	@Test()
-	public void doLogin1(){
+	public void doLogin1() throws Exception{
 		lp = new LoginPageAct();
 		lp.doLogin("admin", "test@123");
 	}

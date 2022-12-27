@@ -2,6 +2,7 @@ package locators;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,6 +27,16 @@ public class CampaignAddLoc {
 	@FindBy(xpath="//span[text()='Frequency']") public WebElement deliverySchedule;
 	
 	@FindBy(xpath="//span[contains(text(),'IMMEDIATE')]") public WebElement immediateSchedule;
+	
+	@FindBy(xpath="//span[contains(text(),' ONE TIME ')]") public WebElement oneTime;
+	
+	@FindBy(xpath="//span[contains(text(),'WEEKLY')]") public WebElement weekly;
+	
+	@FindBy(css=".mat-button-wrapper> svg") public List<WebElement> calendar;
+	
+	@FindBy(xpath="//input[@formcontrolname='deliveryTime']") public WebElement selTime;
+	
+	@FindBy(xpath="//mat-select[@aria-multiselectable='true']/div")  public WebElement selDays;
 	
 	@FindBy(xpath="//button[contains(text(),'CONTINUE')]") public List<WebElement> continueBasic;
 	

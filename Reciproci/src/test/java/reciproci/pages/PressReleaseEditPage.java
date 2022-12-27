@@ -12,7 +12,7 @@ public class PressReleaseEditPage extends Base{
 	
 	PressReleaseScrLoc pl = new PressReleaseScrLoc();
 	
-	public PressReleaseEditPage() {
+	public PressReleaseEditPage() throws Exception {
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, pl);	
 	}

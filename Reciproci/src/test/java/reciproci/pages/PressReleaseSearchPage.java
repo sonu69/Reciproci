@@ -17,7 +17,7 @@ public class PressReleaseSearchPage extends Base{
 
 	PressReleaseScrLoc ps = new PressReleaseScrLoc();
 
-	public PressReleaseSearchPage(){
+	public PressReleaseSearchPage()  throws Exception{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,10);
 		PageFactory.initElements(factory, ps);
 	}

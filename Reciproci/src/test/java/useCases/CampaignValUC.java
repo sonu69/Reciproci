@@ -9,7 +9,7 @@ import reciproci.pages.Menu;
 public class CampaignValUC {
 	
 	@BeforeTest
-	public void doLogin() {
+	public void doLogin() throws Exception {
 		LoginPageAct lp = new LoginPageAct();
 		lp.doLogin("admin", "test@123");
 	}
@@ -22,11 +22,19 @@ public class CampaignValUC {
 	}
 	
 	
-	public void verifyCampaign() {
+	public void verifyCloneCampaign() {
 		
 	}
 	
 	
+	public void verifyCampaignCreation() {
+		
+	}
+	
+	
+	public void verifySearchCampaign(){
+		
+	}
 	
 	
 }

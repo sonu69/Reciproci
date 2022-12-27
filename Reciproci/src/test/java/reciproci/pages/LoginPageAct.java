@@ -15,13 +15,13 @@ public class LoginPageAct extends Base{
 	LoginPageLoc lc = new LoginPageLoc();
 
 	
-	public LoginPageAct(){
+	public LoginPageAct() throws Exception{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 10);
 		PageFactory.initElements(factory, lc);
 	}
 	
 	
-	public Menu doLogin() {
+	public Menu doLogin()  throws Exception{
 		lc.userName.sendKeys("admin");
 		lc.password.sendKeys("test@123");
 		lc.loginButton.click();
@@ -31,7 +31,7 @@ public class LoginPageAct extends Base{
 	}
 	
 	
-	public Menu doLogin(String username,String password) {
+	public Menu doLogin(String username,String password)  throws Exception{
 		lc.userName.sendKeys(username);
 		lc.password.sendKeys(password);
 		lc.loginButton.click();

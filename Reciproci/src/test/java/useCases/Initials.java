@@ -31,6 +31,8 @@ public class Initials {
 	}
 	
 	
+	
+	
 	@AfterMethod
 	public void afterMethod(){
 		Base.driver=null;

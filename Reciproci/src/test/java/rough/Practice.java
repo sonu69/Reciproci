@@ -8,6 +8,10 @@ public class Practice {
 
 		Date d = new Date();
 		String newDate = d.toString().substring(4, 18).replace(" ", "_");
+		System.out.println(d.toString());
+		
+		
+		
 	}
 
 }

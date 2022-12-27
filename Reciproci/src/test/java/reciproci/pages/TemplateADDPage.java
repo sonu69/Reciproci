@@ -12,7 +12,7 @@ public class TemplateADDPage extends Base{
 	
 	TemplateAddLoc at = new TemplateAddLoc();
 	
-	public TemplateADDPage() {
+	public TemplateADDPage() throws Exception{
 		
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, at);
@@ -123,7 +123,7 @@ public class TemplateADDPage extends Base{
 	}
 	
 	
-	public TemplateSearchPage cancelWhatsappTemplate() {
+	public TemplateSearchPage cancelWhatsappTemplate() throws Exception {
 		at.cancelTemplate.click();
 		return new TemplateSearchPage();
 	}

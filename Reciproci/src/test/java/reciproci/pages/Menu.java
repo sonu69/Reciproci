@@ -12,7 +12,7 @@ public class Menu extends Base{
 
 	static MenuLocator nm = new MenuLocator();
 
-	public Menu(){
+	public Menu() throws Exception{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, nm);
 	}
@@ -23,13 +23,13 @@ public class Menu extends Base{
 			Base.clickJ(nm.pressRelease);
 		}
 
-		public static PressReleaseSearchPage searchPressRelease(){
+		public static PressReleaseSearchPage searchPressRelease() throws Exception{
 			pressRelease();
 			Base.clickJ(nm.searchPressRelease);
 			return new PressReleaseSearchPage();
 		}
 
-		public static PressReleaseADDPage AddPressRelease(){
+		public static PressReleaseADDPage AddPressRelease()  throws Exception{
 			pressRelease();
 			Base.clickJ(nm.addPressRelease);
 			return new PressReleaseADDPage();
@@ -52,14 +52,14 @@ public class Menu extends Base{
 				nm.selectTemplates.click();
 			}
 
-			public static TemplateSearchPage search(){
+			public static TemplateSearchPage search()  throws Exception{
 				marketing();
 				template();
 				nm.selectSearchTemplate.click();
 				return new TemplateSearchPage();
 			}
 
-			public static TemplateADDPage add(){
+			public static TemplateADDPage add()  throws Exception{
 				marketing();
 				template();
 				nm.selectAddTemplates.click();
@@ -95,13 +95,14 @@ public class Menu extends Base{
 
 		public static class Campaigns{
 
-			public static void searchCampaigns(){
+			public static CampaignSearch searchCampaigns() throws Exception{
 				Base.clickJ(nm.marketing);
 				Base.clickJ(nm.selectCampaigns);
 				Base.clickJ(nm.selectSearhCampaigns);
+				return new CampaignSearch();
 			}
 
-			public static CampaignAddPage addCampaigns(){
+			public static CampaignAddPage addCampaigns() throws Exception{
 				Base.clickJ(nm.marketing);
 				Base.clickJ(nm.selectCampaigns);
 				Base.clickJ(nm.selectAddCampaigns);

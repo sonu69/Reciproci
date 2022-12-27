@@ -4,9 +4,11 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.Iterator;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -21,32 +23,34 @@ public class CampaignAddPage extends Base{
 
 	CampaignAddLoc ca = new CampaignAddLoc();
 
-	public CampaignAddPage() {
+	public CampaignAddPage() throws Exception{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, ca);
 	}
 
 	
+	
+	public void rough() throws InterruptedException {
+		
+		Thread.sleep(8000);
+		
+		selectOption(ca.clickActivity,"Other");
+		
+	}
+	
+	
 	public void englishTemplate() throws Exception {
 		
 		String seltemplate="yes";
 		
-		Thread.sleep(8000);
+		Thread.sleep(6000);
 
 		Wait<WebDriver> fw = new FluentWait<WebDriver>(driver)
 		.withTimeout(Duration.ofSeconds(30))
 		.pollingEvery(Duration.ofSeconds(5))
 		.ignoring(Exception.class);
 		
-		fw.until(ExpectedConditions.elementToBeClickable(ca.clickActivity));
-		
-		waitv(ca.pageHeader);
-		
-		waitv(ca.clickActivity);
-
-		click(ca.clickActivity);
-		Thread.sleep(2000);
-		click(ca.otherCampaignType);
+		selectOption(ca.clickActivity,"Other");
 		
 		type(ca.campaignName,"Testing campaign 122001");
 		type(ca.campaignDescription,"Testing campaign 072101");
@@ -54,13 +58,51 @@ public class CampaignAddPage extends Base{
 		click(ca.pushCommunicationType);
 		click(ca.smsCommunicationType);
 		click(ca.EmailCommunicationType);
+		
+		rb.keyPress(KeyEvent.VK_PAGE_DOWN);
+		rb.keyRelease(KeyEvent.VK_PAGE_DOWN);
 
-		waitv(ca.deliverySchedule);
+		String schedule="ONE TIME";
 		
-		clickJ(ca.deliverySchedule);
+		if(schedule.equalsIgnoreCase("ONE TIME")) {	
+			
+			selectOption(ca.deliverySchedule,"ONE TIME");
+			click(ca.calendar.get(0));
+			selectDate("5/JAN/2023");
+			selectTime(ca.selTime, "23", "55");
+			
+		}else if(schedule.equalsIgnoreCase("DAILY")) {
+			
+			selectOption(ca.deliverySchedule,"DAILY");
+			click(ca.calendar.get(0));
+			selectDate("5/JAN/2023");
+			click(ca.calendar.get(1));
+			selectDate("15/JAN/2023");
+			selectTime(ca.selTime, "23", "55");
+			
+			
+		}else if(schedule.equalsIgnoreCase("WEEKLY")) {
+			selectOption(ca.deliverySchedule,"WEEKLY");
+			click(ca.calendar.get(0));
+			selectDate("5/JAN/2023");
+			click(ca.calendar.get(1));
+			selectDate("15/JAN/2023");
+			selectTime(ca.selTime, "23", "55");
+			multiDropdwn(ca.selDays, "Tuesday");
+			
+		}else if(schedule.equalsIgnoreCase("MONTHLY")) {
+			selectOption(ca.deliverySchedule,"MONTHLY");
+			click(ca.calendar.get(0));
+			selectDate("5/JAN/2023");
+			click(ca.calendar.get(1));
+			selectDate("15/JAN/2023");
+			selectTime(ca.selTime, "23", "55");
+			multiDropdwn(ca.selDays, "Tuesday");
+			
+		}else {
+			selectOption(ca.deliverySchedule,"IMMEDIATE");
+		}
 		
-		waitv(ca.immediateSchedule);
-		clickJ(ca.immediateSchedule);
 		clickJ(ca.continueBasic.get(0));
 		
 		waitv(ca.notificationLimit);
@@ -99,9 +141,12 @@ public class CampaignAddPage extends Base{
 		clickJ(ca.smsSenderID);
 		Thread.sleep(1000);
 
-		click(ca.smsTemplate);
+		//click(ca.smsTemplate);
 		Thread.sleep(1000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Diwali']"))).click();
+		
+		//WebElement smsTemplate = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Diwali']")));
+		selectOption(ca.smsTemplate, "Diwali");
+		
 		clickJ(ca.smsContentTab);
 		
 		Thread.sleep(1000);
@@ -120,7 +165,7 @@ public class CampaignAddPage extends Base{
 		clickJ(ca.emailSenderID);
 		
 		Thread.sleep(2000);
-		Robot rb = new Robot();
+		//Robot rb = new Robot();
 		rb.keyPress(KeyEvent.VK_PAGE_DOWN);
 		rb.keyRelease(KeyEvent.VK_PAGE_DOWN);
 
@@ -520,8 +565,6 @@ public class CampaignAddPage extends Base{
 	}
 	
 
-
-	
 	public void addCampaign() throws InterruptedException {
 
 		String seltemplate="yes";

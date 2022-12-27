@@ -25,7 +25,7 @@ public class PressReleaseADDPage extends Base{
 
 	PressReleaseAddLoc pr = new PressReleaseAddLoc();
 
-	public PressReleaseADDPage(){
+	public PressReleaseADDPage() throws Exception{
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, pr);
 	}

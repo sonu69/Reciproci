@@ -12,7 +12,7 @@ public class TemplateSearchPage extends Base{
 	
 	TemplateSearchLoc tc = new TemplateSearchLoc();
 	
-	public TemplateSearchPage() {
+	public TemplateSearchPage()  throws Exception {
 		AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver,20);
 		PageFactory.initElements(factory, tc);
 	}
