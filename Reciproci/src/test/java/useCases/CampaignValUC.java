@@ -19,6 +19,8 @@ public class CampaignValUC {
 	public void addCampaign() throws Exception {
 		CampaignAddPage cp = Menu.Marketing.Campaigns.addCampaigns();
 		cp.englishTemplate();
+		
+		// englishTemplate
 	}
 	
 	

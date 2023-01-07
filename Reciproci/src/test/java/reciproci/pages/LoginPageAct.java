@@ -20,6 +20,24 @@ public class LoginPageAct extends Base{
 		PageFactory.initElements(factory, lc);
 	}
 	
+	public void verifyLogin(String username,String password) {
+		lc.userName.sendKeys(username);
+		lc.password.sendKeys(password);
+		lc.loginButton.click();
+		
+		try {
+			lc.errorMsgs.get(0).isDisplayed();
+			}
+		catch(Exception e) {
+		}
+		
+		try {
+			lc.successLoginMsg.get(0).isDisplayed();
+			}
+		catch(Exception e) {
+		}
+	}
+	
 	
 	public Menu doLogin()  throws Exception{
 		lc.userName.sendKeys("admin");

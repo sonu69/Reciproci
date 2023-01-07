@@ -98,4 +98,12 @@ public class CampaignAddLoc {
 	
 	@FindBy(xpath="//button[text()='ADD']") public WebElement submitCampaign;
 	
+	@FindBy(xpath="//div[contains(text(),'Please fill all mandatory fields')]") public WebElement allMandatory;
+	
+	@FindBy(xpath="//div[contains(text(),'Campaign Name already exist')]") public WebElement duplicateName;
+	
+	@FindBy(xpath="//div[contains(text(),'Invalid Characters Entered')]") public WebElement invalidCharacter;
+	
+	
+	
 }

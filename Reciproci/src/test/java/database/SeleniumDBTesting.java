@@ -16,18 +16,18 @@ public class SeleniumDBTesting {
 	// Statement object
 	private static Statement stmt;
 	// Constant for Database URL
-	public static String DB_URL = "ca-mig-reciproci-uatdb.c9c5qvqcyavi.ap-south-1.rds.amazonaws.com";
+	public static String DB_URL = "jdbc:mysql://192.168.2.48:3306/cadb";
 	//Database Username
 	public static String DB_USER = "cadbuser";
 	// Database Password
-	public static String DB_PASSWORD = "CAdbUserAt248";
+	public static String DB_PASSWORD = "cadbuser@123";
 
 
 	@BeforeTest
 	public void setUp() throws Exception {
 		try{
 			// Database connection
-			String dbClass = "com.mysql.cj.jdbc.Driver";
+			String dbClass = "com.mysql.jdbc.Driver";
 			Class.forName(dbClass).newInstance();
 			// Get connection to DB
 			Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);

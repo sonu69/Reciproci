@@ -80,10 +80,11 @@ public class Menu extends Base{
 				nm.selectSearchSegment.click();
 			}
 
-			public static void add(){
+			public static CustSegmentPage add() throws Exception{
 				marketing();
 				customerSegment();
 				nm.selectAddSegment.click();
+				return new CustSegmentPage();
 			}
 
 		}
