@@ -1,7 +1,10 @@
 package useCases;
 
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import reciproci.base.Base;
 import reciproci.pages.CampaignAddPage;
 import reciproci.pages.LoginPageAct;
 import reciproci.pages.Menu;
@@ -15,10 +18,10 @@ public class CampaignValUC {
 	}
 	
 	
-	@Test
-	public void addCampaign() throws Exception {
+	@Test(dataProvider="excel-data",dataProviderClass=Base.class)
+	public void addCampaign(String campaignName,String campaignDescription,String notificationLimit,String pushSubject,String pushContent,String smsContent,String engEmailSubject,String engEmailContent) throws Exception {
 		CampaignAddPage cp = Menu.Marketing.Campaigns.addCampaigns();
-		cp.englishTemplate();
+		cp.englishCampaign(campaignName,campaignDescription,notificationLimit,pushSubject,pushContent,smsContent,engEmailSubject,engEmailContent);
 		
 		// englishTemplate
 	}

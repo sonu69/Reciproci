@@ -60,22 +60,30 @@ public class Base{
 		XSSFSheet sh = wb.getSheet(sheetName);
 		int rowLast=sh.getLastRowNum();
 		int cellLast=sh.getRow(0).getLastCellNum();
+		
 		Object[][] datas = null;
+		
 		datas = new String[rowLast][cellLast];
+		
 		for(int i=1;i<=rowLast;i++) {
+			
 			for (int j = 0; j < cellLast; j++) {
+				
 				datas[i-1][j]=sh.getRow(i).getCell(j).getStringCellValue();
+			
 			}
 		}
 		return datas;
 	}
 
+	
 	@DataProvider(name="excel-data")
 	public Object[][] excelDP() throws IOException{
-		Object[][] arrObj= Base.getExcelData(System.getProperty("user.dir")+"/DataFiles/TestDatas/TestData.xlsx","Login");
+		Object[][] arrObj= Base.getExcelData(System.getProperty("user.dir")+"/DataFiles/TestDatas/TestData.xlsx","campaign");
 		return arrObj;
 	}
 
+	
 	public static Object getCell(int rowNum, int colNum, String sheetName) throws IOException {
 		XSSFSheet sh = wb.getSheet(sheetName);
 		Row row = sh.getRow(rowNum);

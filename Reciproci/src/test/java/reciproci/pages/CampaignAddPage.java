@@ -38,7 +38,7 @@ public class CampaignAddPage extends Base{
 
 			selectOption(ca.deliverySchedule,"ONE TIME");
 			click(ca.calendar.get(0));
-			selectDate("5/JAN/2023");
+			selectDate("15/JAN/2023");
 			selectTime(ca.selTime, "23", "55");
 
 		}else if(schedule.equalsIgnoreCase("DAILY")) {
@@ -108,7 +108,7 @@ public class CampaignAddPage extends Base{
 		rb.keyPress(KeyEvent.VK_PAGE_DOWN);
 		rb.keyRelease(KeyEvent.VK_PAGE_DOWN);
 
-		selectDeliverType("WEEKLY", "5/JAN/2023","10/JAN/2023", "23","55", "Tuesday");
+		selectDeliverType("IMMEDIATE", "15/JAN/2023","25/JAN/2023", "23","55", "Tuesday");
 
 		clickJ(ca.continueBasic.get(0));
 		
@@ -460,7 +460,7 @@ public class CampaignAddPage extends Base{
 	}
 
 
-	public void englishCampaign() throws Exception {
+	public void englishCampaign(String campaignName,String campaignDescription,String notificationLimit,String pushSubject,String pushContent,String smsContent,String engEmailSubject,String engEmailContent) throws Exception {
 
 		Thread.sleep(6000);
 
@@ -479,8 +479,8 @@ public class CampaignAddPage extends Base{
 		Thread.sleep(2000);
 		click(ca.otherCampaignType);
 
-		type(ca.campaignName,"Testing campaign 122001");
-		type(ca.campaignDescription,"Testing campaign 072101");
+		type(ca.campaignName,campaignName);
+		type(ca.campaignDescription,campaignDescription);
 
 		click(ca.pushCommunicationType);
 		click(ca.smsCommunicationType);
@@ -497,7 +497,7 @@ public class CampaignAddPage extends Base{
 
 		waitv(ca.notificationLimit);
 		waite(ca.notificationLimit);
-		type(ca.notificationLimit,"1");
+		type(ca.notificationLimit,notificationLimit);
 
 		Thread.sleep(1000);
 		click(ca.selectSegment);
@@ -517,9 +517,9 @@ public class CampaignAddPage extends Base{
 		ca.liknToOption.click();
 		Thread.sleep(1000);
 
-		ca.subject.get(0).sendKeys("Push Subject english");
+		ca.subject.get(0).sendKeys(pushSubject);
 		Thread.sleep(1000);
-		ca.content.get(0).sendKeys("Push Content english");
+		ca.content.get(0).sendKeys(pushContent);
 		Thread.sleep(1000);
 
 		//		click(ca.pushTemplate);
@@ -540,7 +540,7 @@ public class CampaignAddPage extends Base{
 		//		Thread.sleep(1000);
 		//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Diwali']"))).click();
 
-		ca.content.get(1).sendKeys("SMS Content english");
+		ca.content.get(1).sendKeys(smsContent);
 		Thread.sleep(1000);
 		clickJ(ca.smsContentTab);
 
@@ -559,11 +559,11 @@ public class CampaignAddPage extends Base{
 		Thread.sleep(2000);
 		clickJ(ca.engEmailContent);
 		Thread.sleep(2000);
-		type(ca.subject.get(1),"Happy Birthday English");
+		type(ca.subject.get(1),engEmailSubject);
 		Thread.sleep(3000);
 		driver.switchTo().frame(0);
 		Thread.sleep(2000);
-		ca.emailContentBody.sendKeys("This is just for the Testing Purpose,English");
+		ca.emailContentBody.sendKeys(engEmailContent);
 		driver.switchTo().parentFrame();
 		driver.switchTo().defaultContent();
 		clickJ(ca.engEmailContent);

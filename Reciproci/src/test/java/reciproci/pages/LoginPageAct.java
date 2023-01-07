@@ -4,6 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.SkipException;
 
 import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 import locators.LoginPageLoc;
@@ -20,22 +21,38 @@ public class LoginPageAct extends Base{
 		PageFactory.initElements(factory, lc);
 	}
 	
+	
+	
+	
+	public void loginVal(String username, String password, String runMode) throws Exception{
+		
+		LoginPageAct lp = new LoginPageAct();
+		
+		if(runMode.equalsIgnoreCase("N")) {
+			throw new SkipException("");
+		}else {
+			lp.verifyLogin(username,password);
+		}
+	}
+	
+	
+	
 	public void verifyLogin(String username,String password) {
 		lc.userName.sendKeys(username);
 		lc.password.sendKeys(password);
 		lc.loginButton.click();
 		
-		try {
-			lc.errorMsgs.get(0).isDisplayed();
-			}
-		catch(Exception e) {
-		}
-		
-		try {
-			lc.successLoginMsg.get(0).isDisplayed();
-			}
-		catch(Exception e) {
-		}
+//		try {
+//			lc.errorMsgs.get(0).isDisplayed();
+//			}
+//		catch(Exception e) {
+//		}
+//		
+//		try {
+//			lc.successLoginMsg.get(0).isDisplayed();
+//			}
+//		catch(Exception e) {
+//		}
 	}
 	
 	
@@ -116,6 +133,10 @@ public class LoginPageAct extends Base{
 				System.out.println("Test case Pass");
 			}
 	}
+	
+	
+	
+	
 	
 
 }
